@@ -1,0 +1,60 @@
+/* === style.css — solo estilos para el header sobre el canvas === */
+
+/* Fuente y reset básico */
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #fff;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* El canvas ocupa toda la pantalla (p5 ajusta el tamaño vía JS) */
+canvas {
+  display: block;
+  touch-action: none; /* mejor experiencia en touch */
+}
+
+/* Encabezado centrado, por encima del canvas */
+.header {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #1a1a1a;
+  line-height: 1.1;
+  pointer-events: none; /* deja pasar los clics al canvas */
+  z-index: 10;
+  padding: 0 12px; /* pequeño respiro en pantallas angostas */
+}
+
+/* Título responsivo */
+.header .title {
+  margin: 0;
+  font-weight: 400; /* por defecto normal */
+  font-size: clamp(28px, 8vw, 90px); /* 28–90px según ancho */
+}
+
+/* “Weather” en negritas, “Hayward” en cursiva */
+.header .title .weather {
+  font-weight: 700;
+}
+.header .title .city {
+  font-style: italic;
+}
+
+/* Subtítulo centrado y pequeño */
+.header .subtitle {
+  margin: 0.35em 0 0 0;
+  font-weight: 400;
+  opacity: 0.8;
+  font-size: clamp(14px, 2.6vw, 28px); /* 14–28px */
+}
+
+/* Ajuste si la pantalla es baja de alto */
+@media (max-height: 600px) {
+  .header {
+    top: 12px;
+  }
+}
